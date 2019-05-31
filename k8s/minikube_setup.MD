@@ -10,4 +10,10 @@ curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/miniku
 sudo cp minikube /usr/local/bin && rm minikube
 rm -rf ~/.minikube
 minikube start
+kubectl run hello-minikube --image=gcr.io/google_containers/echoserver:1.4 --port=8080
+kubectl expose deployment hello-minikube --type=NodePort
+kubectl get pod
+curl $(minikube service hello-minikube --url)
+#kubectl delete deployment hello-minikube
+#minikube stop
 ```

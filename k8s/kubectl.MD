@@ -1,9 +1,11 @@
+### Basic Kubectl Commands
 ```shell
-minikube start
-kubectl run hello-minikube --image=gcr.io/google_containers/echoserver:1.4 --port=8080
-kubectl expose deployment hello-minikube --type=NodePort
-kubectl get pod
-curl $(minikube service hello-minikube --url)
-#kubectl delete deployment hello-minikube
-#minikube stop
+kubectl get pods
+kubectl get pods [pod name]
+kubectl expose <type name> <identifier/name> [—port=external port] [—target-port=container-port [—type=service-type]
+kubectl port-forward <pod name> [LOCAL_PORT:]REMOTE_PORT]
+kubectl attach <pod name> -c <container>
+kubectl exec [-it] <pod name> [-c CONTAINER] — COMMAND [args…]
+kubectl label [—overwrite] <type> KEY_1=VAL_1 ….
+kubectl run <name> —image=image
 ```
